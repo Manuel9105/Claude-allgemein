@@ -11,7 +11,7 @@ Basis: mein Dropbox-Ordner auf diesem Mac.
 Prüfe zuerst, wo er liegt (meist `~/Dropbox` oder
 `~/Library/CloudStorage/Dropbox`). Nutze diesen Pfad als `BASIS`.
 
-- `BASIS/00_Scan-Eingang` – hier landen neue Scans (ScanSnap, durchsuchbare PDFs)
+- `BASIS/00 ScanEingang` – hier landen neue Scans (ScanSnap, durchsuchbare PDFs)
 - `BASIS/01_Archiv-Original` – unveränderte Original-Scans, nie anfassen
 - `BASIS/Post/` – die sortierte Ablage (Struktur siehe unten)
 - `BASIS/Post/_Protokoll.csv` – Logbuch jeder Aktion
@@ -71,7 +71,7 @@ Format: `JJJJ-MM-TT_Absender_Betreff.pdf`
 - Existiert der Name schon, hänge `_2`, `_3` an. Nie überschreiben.
 
 ## Ablauf pro Durchgang
-1. **Sichern:** Jede neue Datei aus `00_Scan-Eingang` unverändert nach
+1. **Sichern:** Jede neue Datei aus `00 ScanEingang` unverändert nach
    `01_Archiv-Original` kopieren (Name: Scan-Zeitstempel + Originalname).
 2. **Lesen:** Text extrahieren (`pdftotext`). Ist eine Seite leer oder
    unlesbar, mit `ocrmypdf -l deu` nachbearbeiten.
@@ -128,4 +128,15 @@ Kurz und klar, auf Deutsch:
    Fehlt etwas, Installation per Homebrew vorschlagen.
 3. Ordnerstruktur anlegen.
 4. Liste „Post-Fristen“ in Apple Erinnerungen anlegen.
-5. Mit einem Testlauf auf `00_Scan-Eingang` starten.
+5. Mit einem Testlauf auf `00 ScanEingang` starten.
+
+## Stand der Einrichtung (01.11.2026)
+- Eingang heißt bei mir `00 ScanEingang` (mit Leerzeichen). Keinen zweiten Ordner anlegen.
+- `01_Archiv-Original` und `Post/` mit allen Unterordnern gibt es schon in Dropbox.
+- In `Post/99_Unklar` liegen drei ungeteilte Sammel-PDFs. Teilen mit `qpdf`, dann einzeln ablegen:
+  - `2026-11-01_Sammelscan-Strom-und-Luebeck-Mahnungen_ungeteilt.pdf`
+  - `2026-11-01_Sammelscan-Finanzamt-Bussgeld-Inkasso_ungeteilt.pdf`
+  - Zielordner stehen in `Post/_Protokoll_Nachtrag_2_2026-11-01.csv` und `_Fristen_Nachtrag_*.md`.
+- Bestehende Dateien nie ändern. `_Fristen.md` und `_Protokoll.csv` darf Claude Code auf dem Mac fortschreiben.
+- Karolinenstr. 6 ist meine Privatadresse (Strom gehört nach `10_Privat/Wohnen`).
+- Kleingarten-Grundsteuer gehört nach `10_Privat/Steuern-Privat`.
