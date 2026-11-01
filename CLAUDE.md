@@ -70,9 +70,13 @@ Wichtigkeit:
 - Termine anlegen oder ändern nur nach meinem „ok“.
 
 ### 4. Post → `/post`
-Scan-Sortierung, Fristen und Ablage. Vollständige Regeln: `docs/post-agent.md`.
-Läuft nur lokal auf meinem Mac (Dropbox, `pdftotext`, `qpdf`, `ocrmypdf`, Apple Erinnerungen).
-In der Cloud-Session nur planen und prüfen, nicht ablegen.
+Neue Scans sortieren, ablegen, Fristen erfassen. Das läuft bei jedem Scan gleich.
+- Ablauf: `post/ANLEITUNG.md`. Das Skript `post/pipeline.py` prüft und führt aus. Du urteilst.
+- Regeln fürs Einordnen: `post/regeln.json`. Ergänzen, wenn ich etwas korrigiere.
+- Das Skript garantiert: Original archiviert, nichts überschrieben, keine Seite verloren, kein Scan doppelt.
+- Fristen: `Post/_Fristen_Aktuell.md` in Dropbox, Überfälliges zuerst.
+- Läuft nur lokal auf meinem Mac (Dropbox, `uv`). In der Cloud-Session nur lesen und planen.
+- Ältere Beschreibung: `docs/post-agent.md`.
 
 ## Harte Regeln
 - **Nichts senden.** E-Mails nur als Entwurf. Senden mache ich selbst oder sage ausdrücklich „senden“.

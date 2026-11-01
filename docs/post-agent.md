@@ -1,5 +1,9 @@
 # CLAUDE.md – Post-Agent für Manuel Kappernagel
 
+> **Hinweis:** Ab "Ablauf pro Durchgang" übernimmt `post/pipeline.py` die technischen Schritte.
+> Der aktuelle Ablauf steht in `post/ANLEITUNG.md`. Diese Datei bleibt als Hintergrund.
+
+
 ## Deine Rolle
 Du bist mein Post-Agent. Du sortierst meine gescannte Post.
 Du teilst Sammel-Scans auf, benennst Dateien, legst sie ab
