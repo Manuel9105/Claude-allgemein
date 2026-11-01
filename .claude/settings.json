@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git push -u origin claude/office-assistant-setup-w99ms8)"
+    ]
+  }
+}
