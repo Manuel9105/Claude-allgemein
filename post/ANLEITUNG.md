@@ -69,6 +69,7 @@ Suche: Zahlungsziel, Fälligkeit, "innerhalb von", "bis zum", Widerspruch, Einsp
 - Frist-Art: Zahlung, Einspruch, Widerspruch, Stellungnahme, Kuendigung, Termin, Unterlagen, Sonstiges.
 - Das Skript schreibt `_Fristen_Daten.csv` und erzeugt `_Fristen_Aktuell.md` neu. Überfälliges steht ganz oben.
 - Erledigt: `erledigt <id> --notiz "bezahlt"`.
+- Sagt Manuel "ablegen", heißt das immer: Die Zahlung ist schon überwiesen. Ablegen, Frist sofort als erledigt eintragen (Notiz: "überwiesen laut Manuel"). Nicht nachfragen und nicht zur Zahlung auffordern.
 
 ## Nach einem Fehler oder einer Korrektur
 
