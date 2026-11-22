@@ -406,6 +406,21 @@ def szene_rendern(sz: dict, regie: dict, q: dict, s: dict) -> tuple[Path, float]
             ex.append(f"{k:.2f}*sin(t*61)*{gate}")
             ey.append(f"{k * H / W:.2f}*sin(t*47+1)*{gate}")
         gr.lin(f"crop=w={W - 2 * mx}:h={H - 2 * my}:x='{mx}+{'+'.join(ex)}':y='{my}+{'+'.join(ey)}',scale={W}:{H}")
+    if look.get("cartoon"):
+        # Comic-Look: Farben glätten, nur die Helligkeit in Stufen, dünne dunkle Konturen darüber
+        stufe = int(256 / max(3, int(look.get("stufen", 8))))
+        gr.lin("format=yuv420p,median=radius=2,bilateral=sigmaS=4:sigmaR=0.08,gblur=sigma=0.8")
+        gr.lin(f"lutyuv=y='trunc(val/{stufe})*{stufe}+{stufe // 2}'")
+        gr.n += 1
+        n0 = gr.n
+        k = float(look.get("kontur", 0.1))
+        gr.teile.append(f"[{gr.cur}]split=2[cm{n0}][ce{n0}]")
+        gr.teile.append(f"[ce{n0}]format=gray,gblur=sigma=1.4,edgedetect=low={k}:high={k * 3:.3f},negate,format=gbrp[cl{n0}]")
+        gr.teile.append(f"[cm{n0}]format=gbrp[cp{n0}]")
+        gr.n += 1
+        gr.teile.append(f"[cp{n0}][cl{n0}]blend=all_mode=multiply:all_opacity=0.9[g{gr.n}]")
+        gr.cur = f"g{gr.n}"
+        gr.lin("format=yuv420p")
     gr.lin(f"eq={look['eq']}")
     gr.lin(f"curves=all='{look['curves']}'")
     gr.lin(f"colorbalance={look['colorbalance']}")
@@ -436,9 +451,11 @@ def szene_rendern(sz: dict, regie: dict, q: dict, s: dict) -> tuple[Path, float]
         gr.teile.append(f"[{c}][du]blend=all_mode=screen:all_opacity=0.9:shortest=1[{out}]")
         gr.cur = out
         gr.lin("format=yuv420p")
-    gr.lin("unsharp=5:5:0.5:5:5:0.0")
+    if not look.get("cartoon"):
+        gr.lin("unsharp=5:5:0.5:5:5:0.0")
     gr.lin(f"vignette=angle={look['vignette']}")
-    gr.lin(f"noise=alls={look['korn']}:allf=t+u")
+    if look.get("korn"):
+        gr.lin(f"noise=alls={look['korn']}:allf=t+u")
     gr.lin("format=yuv420p")
     g.append(gr.text())
 

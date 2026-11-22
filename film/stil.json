@@ -7,7 +7,10 @@
     "rand": "0x3A1F06",
     "schatten": "0x000000",
     "groesse": 0.15,
-    "schrift_suche": ["assets/fonts/*.ttf", "assets/fonts/*.otf"]
+    "schrift_suche": [
+      "assets/fonts/*.ttf",
+      "assets/fonts/*.otf"
+    ]
   },
   "looks": {
     "abenteuer": {
@@ -49,21 +52,113 @@
       "bloom": 0.45,
       "vignette": 0.75,
       "korn": 4
+    },
+    "cartoon": {
+      "cartoon": true,
+      "eq": "contrast=1.0:saturation=1.5:brightness=0.07:gamma=0.82",
+      "curves": "0/0.04 0.25/0.3 0.5/0.6 0.78/0.88 1/1",
+      "colorbalance": "rm=0.02:bm=-0.02:rh=0.04:bh=-0.04",
+      "bloom": 0.25,
+      "vignette": 0.3,
+      "korn": 0,
+      "stufen": 8,
+      "kontur": 0.1
     }
   },
   "stimmungen": {
-    "intro":     {"look": "abenteuer", "bewegung": "push", "zoom": 0.06, "partikel": "staub",  "uebergang": ["fadeblack", "fade"]},
-    "abenteuer": {"look": "abenteuer", "bewegung": "push", "zoom": 0.07, "partikel": "staub",  "uebergang": ["circleopen", "slideleft", "smoothleft", "wiperight"]},
-    "action":    {"look": "action",    "bewegung": "push", "zoom": 0.10, "partikel": "glut",   "uebergang": ["zoomin", "slideleft", "radial", "wipeleft"]},
-    "spannung":  {"look": "nacht",     "bewegung": "push", "zoom": 0.05, "partikel": "funken", "uebergang": ["fadeblack", "dissolve"]},
-    "ruhig":     {"look": "sonnig",    "bewegung": "pull", "zoom": 0.05, "partikel": "staub",  "uebergang": ["fade", "dissolve", "fadewhite"]},
-    "sieg":      {"look": "sonnig",    "bewegung": "push", "zoom": 0.08, "partikel": "funken", "uebergang": ["circleopen", "fadewhite", "radial"]},
-    "abspann":   {"look": "abenteuer", "bewegung": "push", "zoom": 0.04, "partikel": "staub",  "uebergang": ["fade"]}
+    "intro": {
+      "look": "abenteuer",
+      "bewegung": "push",
+      "zoom": 0.06,
+      "partikel": "staub",
+      "uebergang": [
+        "fadeblack",
+        "fade"
+      ]
+    },
+    "abenteuer": {
+      "look": "abenteuer",
+      "bewegung": "push",
+      "zoom": 0.07,
+      "partikel": "staub",
+      "uebergang": [
+        "circleopen",
+        "slideleft",
+        "smoothleft",
+        "wiperight"
+      ]
+    },
+    "action": {
+      "look": "action",
+      "bewegung": "push",
+      "zoom": 0.1,
+      "partikel": "glut",
+      "uebergang": [
+        "zoomin",
+        "slideleft",
+        "radial",
+        "wipeleft"
+      ]
+    },
+    "spannung": {
+      "look": "nacht",
+      "bewegung": "push",
+      "zoom": 0.05,
+      "partikel": "funken",
+      "uebergang": [
+        "fadeblack",
+        "dissolve"
+      ]
+    },
+    "ruhig": {
+      "look": "sonnig",
+      "bewegung": "pull",
+      "zoom": 0.05,
+      "partikel": "staub",
+      "uebergang": [
+        "fade",
+        "dissolve",
+        "fadewhite"
+      ]
+    },
+    "sieg": {
+      "look": "sonnig",
+      "bewegung": "push",
+      "zoom": 0.08,
+      "partikel": "funken",
+      "uebergang": [
+        "circleopen",
+        "fadewhite",
+        "radial"
+      ]
+    },
+    "abspann": {
+      "look": "abenteuer",
+      "bewegung": "push",
+      "zoom": 0.04,
+      "partikel": "staub",
+      "uebergang": [
+        "fade"
+      ]
+    }
   },
   "uebergang_sfx": {
-    "fadeblack": "rumble", "fade": null, "dissolve": null, "fadewhite": "sparkle",
-    "circleopen": "whoosh", "circleclose": "whoosh", "radial": "whoosh", "zoomin": "whoosh",
-    "slideleft": "whoosh", "slideright": "whoosh", "smoothleft": "whoosh", "smoothright": "whoosh",
-    "wipeleft": "whoosh", "wiperight": "whoosh", "pixelize": "pop", "horzopen": "whoosh", "vertopen": "whoosh"
+    "fadeblack": "rumble",
+    "fade": null,
+    "dissolve": null,
+    "fadewhite": "sparkle",
+    "circleopen": "whoosh",
+    "circleclose": "whoosh",
+    "radial": "whoosh",
+    "zoomin": "whoosh",
+    "slideleft": "whoosh",
+    "slideright": "whoosh",
+    "smoothleft": "whoosh",
+    "smoothright": "whoosh",
+    "wipeleft": "whoosh",
+    "wiperight": "whoosh",
+    "pixelize": "pop",
+    "horzopen": "whoosh",
+    "vertopen": "whoosh"
   }
 }
