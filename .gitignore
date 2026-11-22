@@ -1,2 +1,16 @@
 __pycache__/
 *.pyc
+
+# Filmschnitt: Medien nicht ins Repo
+film/szenen/*
+!film/szenen/.gitkeep
+film/ausgabe/*
+!film/ausgabe/.gitkeep
+film/arbeit/
+film/regie.json
+film/regie_entwurf.json
+film/klang_demo/
+film/assets/fonts/*
+!film/assets/fonts/.gitkeep
+film/musik/*
+!film/musik/.gitkeep

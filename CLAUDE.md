@@ -78,6 +78,12 @@ Neue Scans sortieren, ablegen, Fristen erfassen. Das läuft bei jedem Scan gleic
 - Läuft nur lokal auf meinem Mac (Dropbox, `uv`). In der Cloud-Session nur lesen und planen.
 - Ältere Beschreibung: `docs/post-agent.md`.
 
+### 5. Film → `/film`
+Szenen aus `film/szenen/` zu einem Kinderfilm im Abenteuer-Stil schneiden: Kino-Look, Effekte, Titel, Musik, Sound.
+- Ablauf und Regeln: `film/ANLEITUNG.md`. Das Skript `film/kino.py` rendert. Du urteilst über Stimmung und Effekte.
+- Erst Regie zeigen, dann Vorschau, dann Final. Originale nie anfassen, Ausgaben nie überschreiben.
+- Läuft nur dort, wo `ffmpeg` und die Szenen liegen.
+
 ## Harte Regeln
 - **Nichts senden.** E-Mails nur als Entwurf. Senden mache ich selbst oder sage ausdrücklich „senden“.
 - **Nichts bezahlen**, nichts buchen, nichts zusagen.
