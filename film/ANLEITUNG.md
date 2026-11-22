@@ -119,3 +119,20 @@ Selbsttest: `uv run --with numpy python film/selbsttest.py`. Baut einen Mini-Fil
   Für den echten Kino-Eindruck: eigene, lizenzfreie Musik in `film/musik/` legen.
 - Eine Szene wird nicht „verstanden“. Claude sieht Kontaktbögen und urteilt. Du hast das letzte Wort.
 - Zeitlupe nutzt Bildüberblendung. Das ist keine echte Hochgeschwindigkeits-Aufnahme.
+
+## Cartoon per KI (optional, nur lokal)
+
+Der Look `cartoon` in `stil.json` ist nur ein Filter (Konturen, flache Farben).
+Für einen **echten Zeichentrick** schreibt eine Video-KI die Clips um. Das ist ein externer Dienst (Higgsfield).
+Im Test hat das gut funktioniert: Modell `flux_3_video_edit`, 15 Credits für 6 Sekunden.
+
+Ablauf (nur mit ausdrücklichem „ja“ von Manuel, es sind Aufnahmen seiner Kinder):
+1. Jeden Clip auf 720p verkleinern, ohne Ton: `ffmpeg -i IN.MOV -an -vf scale=1280:-2 -r 24 -c:v libx264 -crf 22 -pix_fmt yuv420p OUT.mp4`.
+2. Hochladen (`media_upload`, `curl -X PUT`, `media_confirm`). Dann `estimate_video_cost` und die Zahl nennen.
+3. Umwandeln mit `generate_video`, Modell `flux_3_video_edit`, Prompt:
+   „Restyle this video as a hand-drawn 2D animated cartoon like a modern children's animated feature film: bold clean outlines, flat vivid colors, soft cel shading, friendly expressive characters. Keep the motion, composition and timing exactly the same.“
+4. Ergebnis laden und als `film/szenen/NN_name_cartoon.mp4` ablegen. Originale bleiben unberührt.
+5. In `regie.json` für diese Szenen `"originalton"` setzen. Der KI-Clip hat keinen Ton. Der Ton muss aus dem Original kommen.
+   Dafür den Originalton als Datei ziehen: `ffmpeg -i ORIGINAL.MOV -vn film/arbeit/ton_NN.wav` und mit `ffmpeg -i CARTOON.mp4 -i ton.wav -c:v copy -c:a aac -map 0:v -map 1:a` zum Clip mischen.
+6. Dann normal `bauen --vorschau`. Look `auto` bleibt, der Cartoon-Clip bekommt Titel, Musik, Effekte.
+Grenzen: Figuren können flackern. FLUX bearbeitet pro Clip höchstens 15 Sekunden. Längere Clips vorher teilen.
