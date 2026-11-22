@@ -1,0 +1,164 @@
+{
+  "_hinweis": "Der Look für den ganzen Film. Hier drehen, nicht im Code. Alles Original, nur 'im Geist' von Kinder-Abenteuerfilmen.",
+  "fps": 25,
+  "kino_format": 2.39,
+  "titel": {
+    "farbe": "0xF5B83A",
+    "rand": "0x3A1F06",
+    "schatten": "0x000000",
+    "groesse": 0.15,
+    "schrift_suche": [
+      "assets/fonts/*.ttf",
+      "assets/fonts/*.otf"
+    ]
+  },
+  "looks": {
+    "abenteuer": {
+      "eq": "contrast=1.10:saturation=1.20:gamma=0.97",
+      "curves": "0/0 0.22/0.17 0.5/0.52 0.78/0.84 1/1",
+      "colorbalance": "rs=-0.04:bs=0.07:rm=0.03:bm=-0.03:rh=0.07:gh=0.03:bh=-0.07",
+      "bloom": 0.35,
+      "vignette": 0.62,
+      "korn": 6
+    },
+    "action": {
+      "eq": "contrast=1.18:saturation=1.08:gamma=0.95",
+      "curves": "0/0 0.2/0.14 0.5/0.5 0.8/0.87 1/1",
+      "colorbalance": "rs=-0.05:bs=0.08:rm=0.04:bm=-0.04:rh=0.09:gh=0.03:bh=-0.09",
+      "bloom": 0.4,
+      "vignette": 0.55,
+      "korn": 9
+    },
+    "nacht": {
+      "eq": "contrast=1.12:saturation=0.95:brightness=-0.03:gamma=0.95",
+      "curves": "0/0 0.25/0.18 0.5/0.48 0.8/0.82 1/0.98",
+      "colorbalance": "rs=-0.07:gs=-0.01:bs=0.12:rm=-0.04:bm=0.06:rh=0.0:bh=0.03",
+      "bloom": 0.3,
+      "vignette": 0.5,
+      "korn": 9
+    },
+    "dschungel": {
+      "eq": "contrast=1.10:saturation=1.30:gamma=0.98",
+      "curves": "0/0 0.25/0.2 0.5/0.52 0.78/0.83 1/1",
+      "colorbalance": "rs=-0.05:gs=0.04:bs=0.02:rm=0.0:gm=0.03:bm=-0.03:rh=0.06:gh=0.03:bh=-0.06",
+      "bloom": 0.3,
+      "vignette": 0.6,
+      "korn": 6
+    },
+    "sonnig": {
+      "eq": "contrast=1.06:saturation=1.28:brightness=0.02:gamma=1.0",
+      "curves": "0/0 0.25/0.22 0.5/0.55 0.78/0.85 1/1",
+      "colorbalance": "rs=-0.02:bs=0.04:rm=0.04:bm=-0.04:rh=0.08:gh=0.05:bh=-0.08",
+      "bloom": 0.45,
+      "vignette": 0.75,
+      "korn": 4
+    },
+    "cartoon": {
+      "cartoon": true,
+      "eq": "contrast=1.0:saturation=1.5:brightness=0.07:gamma=0.82",
+      "curves": "0/0.04 0.25/0.3 0.5/0.6 0.78/0.88 1/1",
+      "colorbalance": "rm=0.02:bm=-0.02:rh=0.04:bh=-0.04",
+      "bloom": 0.25,
+      "vignette": 0.3,
+      "korn": 0,
+      "stufen": 8,
+      "kontur": 0.1
+    }
+  },
+  "stimmungen": {
+    "intro": {
+      "look": "abenteuer",
+      "bewegung": "push",
+      "zoom": 0.06,
+      "partikel": "staub",
+      "uebergang": [
+        "fadeblack",
+        "fade"
+      ]
+    },
+    "abenteuer": {
+      "look": "abenteuer",
+      "bewegung": "push",
+      "zoom": 0.07,
+      "partikel": "staub",
+      "uebergang": [
+        "circleopen",
+        "slideleft",
+        "smoothleft",
+        "wiperight"
+      ]
+    },
+    "action": {
+      "look": "action",
+      "bewegung": "push",
+      "zoom": 0.1,
+      "partikel": "glut",
+      "uebergang": [
+        "zoomin",
+        "slideleft",
+        "radial",
+        "wipeleft"
+      ]
+    },
+    "spannung": {
+      "look": "nacht",
+      "bewegung": "push",
+      "zoom": 0.05,
+      "partikel": "funken",
+      "uebergang": [
+        "fadeblack",
+        "dissolve"
+      ]
+    },
+    "ruhig": {
+      "look": "sonnig",
+      "bewegung": "pull",
+      "zoom": 0.05,
+      "partikel": "staub",
+      "uebergang": [
+        "fade",
+        "dissolve",
+        "fadewhite"
+      ]
+    },
+    "sieg": {
+      "look": "sonnig",
+      "bewegung": "push",
+      "zoom": 0.08,
+      "partikel": "funken",
+      "uebergang": [
+        "circleopen",
+        "fadewhite",
+        "radial"
+      ]
+    },
+    "abspann": {
+      "look": "abenteuer",
+      "bewegung": "push",
+      "zoom": 0.04,
+      "partikel": "staub",
+      "uebergang": [
+        "fade"
+      ]
+    }
+  },
+  "uebergang_sfx": {
+    "fadeblack": "rumble",
+    "fade": null,
+    "dissolve": null,
+    "fadewhite": "sparkle",
+    "circleopen": "whoosh",
+    "circleclose": "whoosh",
+    "radial": "whoosh",
+    "zoomin": "whoosh",
+    "slideleft": "whoosh",
+    "slideright": "whoosh",
+    "smoothleft": "whoosh",
+    "smoothright": "whoosh",
+    "wipeleft": "whoosh",
+    "wiperight": "whoosh",
+    "pixelize": "pop",
+    "horzopen": "whoosh",
+    "vertopen": "whoosh"
+  }
+}
